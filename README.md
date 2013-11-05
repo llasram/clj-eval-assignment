@@ -10,7 +10,7 @@ assignment evaluation Groovy script.  Run it as:
     
 The additional `PROPERTIES` arguments may be any number of additional
 property-name/-value pairs, as per additional `-D` property-specification
-arguments to the `lenskite-val` Maven task.  For example:
+arguments to the `lenskit-val` Maven task.  For example:
 
     $ lein lenskit-eval lenskit.eval.threadCount=4
     
