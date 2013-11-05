@@ -16,11 +16,24 @@ import org.grouplens.lenskit.vectors.VectorEntry;
 import javax.annotation.Nonnull;
 import java.util.List;
 
+import clojure.lang.RT;
+import clojure.lang.Var;
+import clojure.lang.Symbol;
+
 /**
  * A metric that measures the tag entropy of the recommended items.
  * @author <a href="http://www.grouplens.org">GroupLens Research</a>
  */
 public class TagEntropyMetric extends AbstractTestUserMetric {
+    private static class Vars {
+        private static final String NS = "recsys.metric";
+        private static final Var
+            tagEntropyAccumulator = RT.var(NS, "tag-entropy-accumulator");
+        static {
+            RT.var("clojure.core", "require").invoke(Symbol.intern(NS));
+        }
+    }
+
     private final int listSize;
     private final List<String> columns;
 
@@ -46,7 +59,8 @@ public class TagEntropyMetric extends AbstractTestUserMetric {
      */
     @Override
     public TestUserMetricAccumulator makeAccumulator(AlgorithmInstance algorithm, TTDataSet data) {
-        return new TagEntropyAccumulator();
+        return (TestUserMetricAccumulator)
+            Vars.tagEntropyAccumulator.invoke(listSize);
     }
 
     /**
@@ -65,52 +79,5 @@ public class TagEntropyMetric extends AbstractTestUserMetric {
     public List<String> getUserColumnLabels() {
         // per-user and global have the same fields, they just differ in aggregation.
         return columns;
-    }
-
-
-    private class TagEntropyAccumulator implements TestUserMetricAccumulator {
-        private double totalEntropy = 0;
-        private int userCount = 0;
-
-        /**
-         * Evaluate a single test user's recommendations or predictions.
-         * @param testUser The user's recommendation result.
-         * @return The values for the per-user columns.
-         */
-        @Nonnull
-        @Override
-        public Object[] evaluate(TestUser testUser) {
-            List<ScoredId> recommendations =
-                    testUser.getRecommendations(listSize,
-                                                ItemSelectors.allItems(),
-                                                ItemSelectors.trainingItems());
-            if (recommendations == null) {
-                return new Object[1];
-            }
-            LenskitRecommender lkrec = (LenskitRecommender) testUser.getRecommender();
-            ItemTagDAO tagDAO = lkrec.get(ItemTagDAO.class);
-            TagVocabulary vocab = lkrec.get(TagVocabulary.class);
-
-            double entropy = 0;
-
-            // TODO Implement the entropy metric
-
-            totalEntropy += entropy;
-            userCount += 1;
-            return new Object[]{entropy};
-        }
-
-        /**
-         * Get the final aggregate results.  This is called after all users have been evaluated, and
-         * returns the values for the columns in the global output.
-         *
-         * @return The final, aggregated columns.
-         */
-        @Nonnull
-        @Override
-        public Object[] finalResults() {
-            // return a single field, the average entropy
-            return new Object[]{totalEntropy / userCount};
-        }
     }
 }
