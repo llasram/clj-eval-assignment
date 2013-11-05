@@ -16,7 +16,12 @@
                  [org.slf4j/slf4j-api "1.7.5"]
                  [org.slf4j/slf4j-log4j12 "1.7.5"]
                  [log4j "1.2.17"]]
-  :main ^:skip-aot recsys.eval
+  :aliases {"lenskit-eval" ;; Should become a plugin, but this works for now
+            ["run" "-m" "recsys.eval" "./eval/eval.groovy"
+             "project.build.sourceEncoding=UTF-8"
+             "lenskit.eval.dataDir=./data/"
+             "lenskit.eval.scriptDir=./eval/"
+             "lenskit.eval.analysisDir=./target/analysis/"]}
   :profiles {:uberjar {:aot :all}
              :provided {:dependencies
                         [[org.grouplens.lenskit/lenskit-eval "2.0.3.2"]]}
