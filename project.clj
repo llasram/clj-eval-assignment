@@ -1,8 +1,8 @@
 (defproject clj-eval-assignment "0.1.0-SNAPSHOT"
   :description "Clojure port of `eval-assignment` template."
   :url "http://github.com/llasram/clj-eval-assignment"
-  :source-paths ["src/main/clojure"]
-  :java-source-paths ["src/main/java"]
+  :source-paths ["src/clojure"]
+  :java-source-paths ["src/java"]
   :javac-options ["-target" "1.6" "-source" "1.6"]
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.codehaus.jsr166-mirror/jsr166y "1.7.0"]

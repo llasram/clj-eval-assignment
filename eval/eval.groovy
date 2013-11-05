@@ -1,6 +1,6 @@
-import edu.umn.cs.recsys.*
-import edu.umn.cs.recsys.cbf.LuceneItemItemModel
-import edu.umn.cs.recsys.dao.*
+import recsys.*
+import recsys.cbf.LuceneItemItemModel
+import recsys.dao.*
 import org.grouplens.lenskit.*
 import org.grouplens.lenskit.baseline.*
 import org.grouplens.lenskit.data.dao.ItemDAO

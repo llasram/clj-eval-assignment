@@ -1,4 +1,4 @@
-package edu.umn.cs.recsys.dao;
+package recsys.dao;
 
 import org.grouplens.lenskit.core.Parameter;
 
@@ -15,5 +15,5 @@ import java.lang.annotation.*;
 @Target(ElementType.PARAMETER)
 @Qualifier
 @Parameter(File.class)
-public @interface TagFile {
+public @interface UserFile {
 }

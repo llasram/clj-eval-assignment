@@ -1,4 +1,4 @@
-package edu.umn.cs.recsys;
+package recsys;
 
 import org.grouplens.grapht.annotation.DefaultProvider;
 import org.grouplens.lenskit.basic.AbstractItemScorer;

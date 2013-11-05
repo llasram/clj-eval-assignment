@@ -1,7 +1,7 @@
-package edu.umn.cs.recsys;
+package recsys;
 
 import com.google.common.collect.ImmutableList;
-import edu.umn.cs.recsys.dao.ItemTagDAO;
+import recsys.dao.ItemTagDAO;
 import org.grouplens.lenskit.core.LenskitRecommender;
 import org.grouplens.lenskit.eval.algorithm.AlgorithmInstance;
 import org.grouplens.lenskit.eval.data.traintest.TTDataSet;

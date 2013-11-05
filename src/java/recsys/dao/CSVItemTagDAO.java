@@ -1,4 +1,4 @@
-package edu.umn.cs.recsys.dao;
+package recsys.dao;
 
 import com.google.common.collect.ImmutableSet;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;

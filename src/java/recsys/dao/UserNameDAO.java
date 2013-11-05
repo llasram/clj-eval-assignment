@@ -1,4 +1,4 @@
-package edu.umn.cs.recsys.dao;
+package recsys.dao;
 
 import org.grouplens.lenskit.data.dao.UserDAO;
 

@@ -1,8 +1,8 @@
-package edu.umn.cs.recsys;
+package recsys;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
-import edu.umn.cs.recsys.dao.ItemTagDAO;
+import recsys.dao.ItemTagDAO;
 import org.grouplens.lenskit.core.Transient;
 import org.grouplens.lenskit.vectors.MutableSparseVector;
 

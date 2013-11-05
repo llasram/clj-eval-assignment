@@ -1,4 +1,4 @@
-package edu.umn.cs.recsys.dao;
+package recsys.dao;
 
 import java.util.List;
 import java.util.Set;

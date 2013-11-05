@@ -1,4 +1,4 @@
-package edu.umn.cs.recsys.dao;
+package recsys.dao;
 
 import org.grouplens.lenskit.core.Parameter;
 
@@ -7,7 +7,7 @@ import java.io.File;
 import java.lang.annotation.*;
 
 /**
- * Parameter annotation for the move tag file.
+ * Parameter annotation for the rating data file.
  * @author <a href="http://www.grouplens.org">GroupLens Research</a>
  */
 @Documented
@@ -15,5 +15,5 @@ import java.lang.annotation.*;
 @Target(ElementType.PARAMETER)
 @Qualifier
 @Parameter(File.class)
-public @interface UserFile {
+public @interface RatingFile {
 }

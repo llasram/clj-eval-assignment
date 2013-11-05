@@ -1,6 +1,6 @@
-package edu.umn.cs.recsys.cbf;
+package recsys.cbf;
 
-import edu.umn.cs.recsys.dao.ItemTagDAO;
+import recsys.dao.ItemTagDAO;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.en.EnglishAnalyzer;

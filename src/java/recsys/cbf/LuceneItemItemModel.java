@@ -1,4 +1,4 @@
-package edu.umn.cs.recsys.cbf;
+package recsys.cbf;
 
 import com.google.common.base.Throwables;
 import com.google.common.cache.CacheBuilder;
